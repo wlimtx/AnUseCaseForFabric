@@ -1,6 +1,34 @@
-=============== Aug 19, 2018 (UTC) ===============
-13:32:53.381889 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-13:32:53.386716 db@open opening
-13:32:53.389275 version@stat F·[] S·0B[] Sc·[]
-13:32:53.394827 db@janitor F·2 G·0
-13:32:53.395306 db@open done T·8.029051ms
+=============== Aug 20, 2018 (UTC) ===============
+02:47:06.289484 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+02:47:06.292989 db@open opening
+02:47:06.295693 version@stat F·[] S·0B[] Sc·[]
+02:47:06.297505 db@janitor F·2 G·0
+02:47:06.297762 db@open done T·4.605341ms
+=============== Aug 20, 2018 (UTC) ===============
+03:16:28.986504 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:16:28.992793 version@stat F·[] S·0B[] Sc·[]
+03:16:28.993562 db@open opening
+03:16:28.995742 journal@recovery F·1
+03:16:28.998681 journal@recovery recovering @1
+03:16:29.003999 version@stat F·[] S·0B[] Sc·[]
+03:16:29.012928 db@janitor F·2 G·0
+03:16:29.013447 db@open done T·19.454983ms
+=============== Aug 20, 2018 (UTC) ===============
+03:18:40.500689 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:18:40.511257 version@stat F·[] S·0B[] Sc·[]
+03:18:40.512012 db@open opening
+03:18:40.513661 journal@recovery F·1
+03:18:40.514940 journal@recovery recovering @2
+03:18:40.519927 version@stat F·[] S·0B[] Sc·[]
+03:18:40.532851 db@janitor F·2 G·0
+03:18:40.533368 db@open done T·21.033387ms
+=============== Aug 20, 2018 (UTC) ===============
+05:33:00.092885 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+05:33:00.097894 version@stat F·[] S·0B[] Sc·[]
+05:33:00.098404 db@open opening
+05:33:00.099701 journal@recovery F·1
+05:33:00.100457 journal@recovery recovering @4
+05:33:00.104908 memdb@flush created L0@6 N·14 S·791B "bus..\f\x01\b,d11":"bus..N\x01\r,v13"
+05:33:00.106145 version@stat F·[1] S·791B[791B] Sc·[0.25]
+05:33:00.113868 db@janitor F·3 G·0
+05:33:00.114164 db@open done T·15.497445ms

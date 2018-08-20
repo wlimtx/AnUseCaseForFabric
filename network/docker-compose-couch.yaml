@@ -20,7 +20,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     volumes:
-      - ${DATA_PATH}/Peer/org1/couch0:/opt/couchdb/data
+      - ${DATA_PATH}/Peer/farmer/couch0:/opt/couchdb/data
     ports:
       - "5984:5984"
     networks:
@@ -49,7 +49,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     volumes:
-      - ${DATA_PATH}/Peer/org1/couch0:/opt/couchdb/data
+      - ${DATA_PATH}/Peer/shipper/couch0:/opt/couchdb/data
     ports:
       - "6984:5984"
     networks:
@@ -79,7 +79,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     volumes:
-      - ${DATA_PATH}/Peer/org1/couch0:/opt/couchdb/data
+      - ${DATA_PATH}/Peer/distributor/couch0:/opt/couchdb/data
     ports:
       - "7984:5984"
     networks:
@@ -109,7 +109,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     volumes:
-      - ${DATA_PATH}/Peer/org1/couch0:/opt/couchdb/data
+      - ${DATA_PATH}/Peer/wholesaler/couch0:/opt/couchdb/data
     ports:
       - "8984:5984"
     networks:
@@ -140,7 +140,7 @@ services:
     # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
     # for example map it to utilize Fauxton User Interface in dev environments.
     volumes:
-      - ${DATA_PATH}/Peer/org1/couch0:/opt/couchdb/data
+      - ${DATA_PATH}/Peer/retailer/couch0:/opt/couchdb/data
     ports:
       - "9984:5984"
     networks:

@@ -1,6 +1,34 @@
-=============== Aug 19, 2018 (UTC) ===============
-13:32:56.519792 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-13:32:56.524498 db@open opening
-13:32:56.526043 version@stat F·[] S·0B[] Sc·[]
-13:32:56.528027 db@janitor F·2 G·0
-13:32:56.528330 db@open done T·3.605418ms
+=============== Aug 20, 2018 (UTC) ===============
+02:47:07.156873 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+02:47:07.161466 db@open opening
+02:47:07.165184 version@stat F·[] S·0B[] Sc·[]
+02:47:07.168142 db@janitor F·2 G·0
+02:47:07.168441 db@open done T·6.751812ms
+=============== Aug 20, 2018 (UTC) ===============
+03:16:32.121817 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:16:32.125245 version@stat F·[] S·0B[] Sc·[]
+03:16:32.125582 db@open opening
+03:16:32.126477 journal@recovery F·1
+03:16:32.127081 journal@recovery recovering @1
+03:16:32.130097 version@stat F·[] S·0B[] Sc·[]
+03:16:32.134068 db@janitor F·2 G·0
+03:16:32.134301 db@open done T·8.526721ms
+=============== Aug 20, 2018 (UTC) ===============
+03:18:43.780841 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:18:43.784244 version@stat F·[] S·0B[] Sc·[]
+03:18:43.784585 db@open opening
+03:18:43.785609 journal@recovery F·1
+03:18:43.785929 journal@recovery recovering @2
+03:18:43.788106 version@stat F·[] S·0B[] Sc·[]
+03:18:43.792272 db@janitor F·2 G·0
+03:18:43.792497 db@open done T·7.678028ms
+=============== Aug 20, 2018 (UTC) ===============
+05:33:03.845285 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+05:33:03.849649 version@stat F·[] S·0B[] Sc·[]
+05:33:03.850218 db@open opening
+05:33:03.851731 journal@recovery F·1
+05:33:03.852632 journal@recovery recovering @4
+05:33:03.857383 memdb@flush created L0@6 N·1 S·292B "bus..\xff\xff\xf9,v1":"bus..\xff\xff\xf9,v1"
+05:33:03.860078 version@stat F·[1] S·292B[292B] Sc·[0.25]
+05:33:03.869526 db@janitor F·3 G·0
+05:33:03.870085 db@open done T·19.57061ms

@@ -1,6 +1,35 @@
-=============== Aug 19, 2018 (UTC) ===============
-13:32:51.034787 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-13:32:51.045794 db@open opening
-13:32:51.047781 version@stat F·[] S·0B[] Sc·[]
-13:32:51.050062 db@janitor F·2 G·0
-13:32:51.050308 db@open done T·4.301951ms
+=============== Aug 20, 2018 (UTC) ===============
+02:47:02.963684 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+02:47:02.982979 db@open opening
+02:47:02.989992 version@stat F·[] S·0B[] Sc·[]
+02:47:03.003094 db@janitor F·2 G·0
+02:47:03.003705 db@open done T·20.008226ms
+=============== Aug 20, 2018 (UTC) ===============
+03:16:24.033320 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:16:24.044969 version@stat F·[] S·0B[] Sc·[]
+03:16:24.045732 db@open opening
+03:16:24.049130 journal@recovery F·1
+03:16:24.050060 journal@recovery recovering @1
+03:16:24.063734 memdb@flush created L0@2 N·18 S·250B "bus..n\x00\x00,d17":"bus..n\x00\x01,v2"
+03:16:24.068339 version@stat F·[1] S·250B[250B] Sc·[0.25]
+03:16:24.092931 db@janitor F·3 G·0
+03:16:24.093859 db@open done T·47.514844ms
+=============== Aug 20, 2018 (UTC) ===============
+03:18:35.748046 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:18:35.757484 version@stat F·[1] S·250B[250B] Sc·[0.25]
+03:18:35.758212 db@open opening
+03:18:35.760222 journal@recovery F·1
+03:18:35.761313 journal@recovery recovering @3
+03:18:35.765412 version@stat F·[1] S·250B[250B] Sc·[0.25]
+03:18:35.776509 db@janitor F·3 G·0
+03:18:35.776991 db@open done T·18.373035ms
+=============== Aug 20, 2018 (UTC) ===============
+05:32:59.346827 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+05:32:59.355470 version@stat F·[1] S·250B[250B] Sc·[0.25]
+05:32:59.356267 db@open opening
+05:32:59.358960 journal@recovery F·1
+05:32:59.360069 journal@recovery recovering @5
+05:32:59.368186 memdb@flush created L0@7 N·48 S·926B "bus..n\x00\x00,d66":"bus..N\x01\r,v63"
+05:32:59.372655 version@stat F·[2] S·1KiB[1KiB] Sc·[0.50]
+05:32:59.386495 db@janitor F·4 G·0
+05:32:59.387083 db@open done T·30.40656ms

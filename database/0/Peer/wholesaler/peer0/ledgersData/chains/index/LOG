@@ -1,6 +1,36 @@
-=============== Aug 19, 2018 (UTC) ===============
-13:32:51.494141 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-13:32:51.520580 db@open opening
-13:32:51.523009 version@stat F·[] S·0B[] Sc·[]
-13:32:51.524743 db@janitor F·2 G·0
-13:32:51.524964 db@open done T·4.145999ms
+=============== Aug 20, 2018 (UTC) ===============
+02:47:01.719868 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+02:47:01.831908 db@open opening
+02:47:01.862894 version@stat F·[] S·0B[] Sc·[]
+02:47:01.905723 db@janitor F·2 G·0
+02:47:01.920681 db@open done T·83.173ms
+=============== Aug 20, 2018 (UTC) ===============
+03:16:24.569872 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:16:24.575297 version@stat F·[] S·0B[] Sc·[]
+03:16:24.575847 db@open opening
+03:16:24.577833 journal@recovery F·1
+03:16:24.579305 journal@recovery recovering @1
+03:16:24.584346 memdb@flush created L0@2 N·34 S·759B "bus..a\x00\x00,v6":"bus..n\x00v,v8"
+03:16:24.587599 version@stat F·[1] S·759B[759B] Sc·[0.25]
+03:16:24.630296 db@janitor F·3 G·0
+03:16:24.630584 db@open done T·54.420729ms
+=============== Aug 20, 2018 (UTC) ===============
+03:18:37.548914 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:18:37.574018 version@stat F·[1] S·759B[759B] Sc·[0.25]
+03:18:37.574765 db@open opening
+03:18:37.580036 journal@recovery F·1
+03:18:37.582251 journal@recovery recovering @3
+03:18:37.591489 memdb@flush created L0@5 N·1 S·142B "bus..nfo,v36":"bus..nfo,v36"
+03:18:37.592889 version@stat F·[2] S·901B[901B] Sc·[0.50]
+03:18:37.609945 db@janitor F·4 G·0
+03:18:37.610232 db@open done T·35.017994ms
+=============== Aug 20, 2018 (UTC) ===============
+05:32:54.425409 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+05:32:54.429451 version@stat F·[2] S·901B[901B] Sc·[0.50]
+05:32:54.429845 db@open opening
+05:32:54.430911 journal@recovery F·1
+05:32:54.433119 journal@recovery recovering @6
+05:32:54.438220 memdb@flush created L0@8 N·65 S·1KiB "bus..\x01\x06\x00,v44":"bus..3e9,v46"
+05:32:54.439603 version@stat F·[3] S·2KiB[2KiB] Sc·[0.75]
+05:32:54.446825 db@janitor F·5 G·0
+05:32:54.447125 db@open done T·17.013851ms

@@ -1,0 +1,35 @@
+=============== Aug 20, 2018 (UTC) ===============
+02:47:05.281524 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+02:47:05.289789 db@open opening
+02:47:05.293207 version@stat F·[] S·0B[] Sc·[]
+02:47:05.297428 db@janitor F·2 G·0
+02:47:05.298131 db@open done T·7.924785ms
+=============== Aug 20, 2018 (UTC) ===============
+03:16:30.294191 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:16:30.299202 version@stat F·[] S·0B[] Sc·[]
+03:16:30.299883 db@open opening
+03:16:30.301513 journal@recovery F·1
+03:16:30.302230 journal@recovery recovering @1
+03:16:30.306587 memdb@flush created L0@2 N·6 S·177B "bus..n\x00\x00,v6":"bus..n\x00\x00,v1"
+03:16:30.307706 version@stat F·[1] S·177B[177B] Sc·[0.25]
+03:16:30.319024 db@janitor F·3 G·0
+03:16:30.319390 db@open done T·19.057766ms
+=============== Aug 20, 2018 (UTC) ===============
+03:18:41.394401 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+03:18:41.397933 version@stat F·[1] S·177B[177B] Sc·[0.25]
+03:18:41.398309 db@open opening
+03:18:41.399483 journal@recovery F·1
+03:18:41.400035 journal@recovery recovering @3
+03:18:41.403237 version@stat F·[1] S·177B[177B] Sc·[0.25]
+03:18:41.408266 db@janitor F·3 G·0
+03:18:41.408546 db@open done T·10.066154ms
+=============== Aug 20, 2018 (UTC) ===============
+05:33:02.292783 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+05:33:02.300249 version@stat F·[1] S·177B[177B] Sc·[0.25]
+05:33:02.300992 db@open opening
+05:33:02.304629 journal@recovery F·1
+05:33:02.305771 journal@recovery recovering @5
+05:33:02.312048 memdb@flush created L0@7 N·10 S·240B "bus..n\x00\x00,v17":"bus..\x01\x06\x00,v9"
+05:33:02.317575 version@stat F·[2] S·417B[417B] Sc·[0.50]
+05:33:02.330003 db@janitor F·4 G·0
+05:33:02.330668 db@open done T·29.266059ms
