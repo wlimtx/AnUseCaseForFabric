@@ -1,0 +1,138 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+
+  orderer.sunmi.com:
+    container_name: orderer.sunmi.com
+    image: hyperledger/fabric-orderer:$IMAGE_TAG
+    environment:
+      - ORDERER_GENERAL_LOGLEVEL=INFO
+      - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
+      - ORDERER_GENERAL_GENESISMETHOD=file
+      - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
+      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
+      # enabled TLS
+      - ORDERER_GENERAL_TLS_ENABLED=true
+      - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
+      - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
+      - ORDERER_GENERAL_TLS_ROOTCAS=[/var/hyperledger/orderer/tls/ca.crt]
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric
+    command: orderer
+    volumes:
+      - ../channel-artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
+      - ../crypto-config/ordererOrganizations/sunmi.com/orderers/orderer.sunmi.com/msp:/var/hyperledger/orderer/msp
+      - ../crypto-config/ordererOrganizations/sunmi.com/orderers/orderer.sunmi.com/tls/:/var/hyperledger/orderer/tls
+      - ${DATA_PATH}/Orderer/sunmi/0:/var/hyperledger/production/
+    ports:
+      - 7050:7050
+
+
+  peer0.farmer.com:
+    container_name: peer0.farmer.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.farmer.com
+      - CORE_PEER_ADDRESS=peer0.farmer.com:7051
+#      - CORE_PEER_GOSSIP_BOOTSTRAP=
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.farmer.com:7051
+      - CORE_PEER_LOCALMSPID=FarmerMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/farmer.com/peers/peer0.farmer.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/farmer.com/peers/peer0.farmer.com/tls:/etc/hyperledger/fabric/tls
+        - ${DATA_PATH}/Peer/farmer/peer0:/var/hyperledger/production/
+    ports:
+      - 7051:7051
+      - 7053:7053
+
+
+  peer0.shipper.com:
+    container_name: peer0.shipper.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.shipper.com
+      - CORE_PEER_ADDRESS=peer0.shipper.com:7051
+#      - CORE_PEER_GOSSIP_BOOTSTRAP=
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.shipper.com:7051
+      - CORE_PEER_LOCALMSPID=ShipperMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/shipper.com/peers/peer0.shipper.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/shipper.com/peers/peer0.shipper.com/tls:/etc/hyperledger/fabric/tls
+        - ${DATA_PATH}/Peer/shipper/peer0:/var/hyperledger/production/
+    ports:
+      - 8051:7051
+      - 8053:7053
+
+
+  peer0.distributor.com:
+    container_name: peer0.distributor.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.distributor.com
+      - CORE_PEER_ADDRESS=peer0.distributor.com:7051
+#      - CORE_PEER_GOSSIP_BOOTSTRAP=
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.distributor.com:7051
+      - CORE_PEER_LOCALMSPID=DistributorMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/distributor.com/peers/peer0.distributor.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/distributor.com/peers/peer0.distributor.com/tls:/etc/hyperledger/fabric/tls
+        - ${DATA_PATH}/Peer/distributor/peer0:/var/hyperledger/production/
+    ports:
+      - 9051:7051
+      - 9053:7053
+
+
+  peer0.wholesaler.com:
+    container_name: peer0.wholesaler.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.wholesaler.com
+      - CORE_PEER_ADDRESS=peer0.wholesaler.com:7051
+#      - CORE_PEER_GOSSIP_BOOTSTRAP=
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.wholesaler.com:7051
+      - CORE_PEER_LOCALMSPID=WholesalerMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/wholesaler.com/peers/peer0.wholesaler.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/wholesaler.com/peers/peer0.wholesaler.com/tls:/etc/hyperledger/fabric/tls
+        - ${DATA_PATH}/Peer/wholesaler/peer0:/var/hyperledger/production/
+    ports:
+      - 10051:7051
+      - 10053:7053
+
+
+  peer0.retailer.com:
+    container_name: peer0.retailer.com
+    extends:
+      file: peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer0.retailer.com
+      - CORE_PEER_ADDRESS=peer0.retailer.com:7051
+#      - CORE_PEER_GOSSIP_BOOTSTRAP=
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.retailer.com:7051
+      - CORE_PEER_LOCALMSPID=RetailerMSP
+    volumes:
+        - /var/run/:/host/var/run/
+        - ../crypto-config/peerOrganizations/retailer.com/peers/peer0.retailer.com/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/retailer.com/peers/peer0.retailer.com/tls:/etc/hyperledger/fabric/tls
+        - ${DATA_PATH}/Peer/retailer/peer0:/var/hyperledger/production/
+    ports:
+      - 11051:7051
+      - 11053:7053
