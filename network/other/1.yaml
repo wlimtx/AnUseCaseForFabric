@@ -1,0 +1,105 @@
+
+
+
+
+Distributor, Farmer and Shipper
+Distributor and Wholesaler
+Wholesaler, Retailer and Shipper
+
+水果名字:
+  温热性水果:
+    - 山楂
+    - 樱桃
+    - 石榴
+    - 荔枝
+    - 青果
+    - 木瓜
+    - 白果
+    - 红毛丹
+    - 榴莲
+    - 金橘
+    - 水蜜桃
+    - 李子
+    - 芒果
+    - 温州蜜柑
+    - 红桔
+    - 南丰蜜桔
+    - 槟榔
+  凉性水果:
+    - 西瓜
+    - 甜瓜
+    - 梨
+    - 柑
+    - 桔香蕉
+    - 桑椹
+    - 柿子
+    - 火龙果
+    - 杨桃
+    - 山竹
+    - 草莓
+    - 枇杷
+    - 圣女果
+    - 奇异果
+    - 猕猴桃
+    - 甜瓜
+    - 柚子
+  中性水果:
+    - 葡萄
+    - 苹果
+    - 杏
+    - 菠萝
+    - 龙眼
+    - 甘蔗
+    - 乌梅
+    - 百香果
+    - 柠檬
+    - 番石榴
+    - 柳橙
+水果类型:
+  - 温热
+  - 凉性
+  - 中性
+水果单价:
+  - 32 cny/kg
+  - 44 cny/kg
+  - 26 cny/kg
+  - 14 cny/kg
+水果重量:
+  - 2000 kg
+  - 1000 kg
+  - 3000 kg
+水果等级:
+# (1-10)
+  - 8
+
+西瓜,温热,32,2000,9
+
+托运重量:
+  - 50000 kg
+托运单价:
+  - 0.1 cny/kg
+托运起点:
+  - 40109 90th St. West, Leona Valley, CA 93551
+托运终点:
+  - 中国上海市徐家汇
+托运人:
+  - Jack
+签收人:
+  - Bob
+签收电话:
+  - 13291576463
+
+"50000 kg","0.1 cny/kg","40109 90th St. West, Leona Valley, CA 93551","中国上海市徐家汇","Jack","Bob","13291576463"
+
+ObjectType
+Id
+Price
+Weight
+From
+To
+DeliverMan
+SignMan
+SignTel
+
+
+

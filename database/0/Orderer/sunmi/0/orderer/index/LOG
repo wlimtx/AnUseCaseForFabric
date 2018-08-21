@@ -1,36 +1,36 @@
 =============== Aug 20, 2018 (UTC) ===============
-02:46:58.389644 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-02:46:58.396822 db@open opening
-02:46:58.404417 version@stat F·[] S·0B[] Sc·[]
-02:46:58.427829 db@janitor F·2 G·0
-02:46:58.443433 db@open done T·46.298065ms
-=============== Aug 20, 2018 (UTC) ===============
-03:16:24.033780 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-03:16:24.045119 version@stat F·[] S·0B[] Sc·[]
-03:16:24.045843 db@open opening
-03:16:24.049657 journal@recovery F·1
-03:16:24.057365 journal@recovery recovering @1
-03:16:24.069196 memdb@flush created L0@2 N·26 S·467B "bus..nfo,v24":"sys..n\x01\x01,v10"
-03:16:24.074804 version@stat F·[1] S·467B[467B] Sc·[0.25]
-03:16:24.098918 db@janitor F·3 G·0
-03:16:24.099466 db@open done T·53.001796ms
-=============== Aug 20, 2018 (UTC) ===============
-03:18:34.714102 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-03:18:34.720277 version@stat F·[1] S·467B[467B] Sc·[0.25]
-03:18:34.720824 db@open opening
-03:18:34.722502 journal@recovery F·1
-03:18:34.723695 journal@recovery recovering @3
-03:18:34.729788 memdb@flush created L0@5 N·2 S·165B "bus..nfo,v28":"sys..nfo,v29"
-03:18:34.731350 version@stat F·[2] S·632B[632B] Sc·[0.50]
-03:18:34.752799 db@janitor F·4 G·0
-03:18:34.754460 db@open done T·33.264881ms
-=============== Aug 20, 2018 (UTC) ===============
-05:32:57.758221 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-05:32:57.763063 version@stat F·[2] S·632B[632B] Sc·[0.50]
-05:32:57.763561 db@open opening
-05:32:57.765123 journal@recovery F·1
-05:32:57.772180 journal@recovery recovering @6
-05:32:57.778638 memdb@flush created L0@8 N·26 S·453B "bus..nfo,v54":"sys..nfo,v32"
-05:32:57.780146 version@stat F·[3] S·1KiB[1KiB] Sc·[0.75]
-05:32:57.785797 db@janitor F·5 G·0
-05:32:57.786099 db@open done T·22.173072ms
+09:12:57.039572 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+09:12:57.048397 db@open opening
+09:12:57.054206 version@stat F·[] S·0B[] Sc·[]
+09:12:57.057220 db@janitor F·2 G·0
+09:12:57.057562 db@open done T·8.684408ms
+=============== Aug 21, 2018 (UTC) ===============
+01:15:10.384507 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+01:15:10.395684 version@stat F·[] S·0B[] Sc·[]
+01:15:10.396637 db@open opening
+01:15:10.399789 journal@recovery F·1
+01:15:10.409769 journal@recovery recovering @1
+01:15:10.418187 memdb@flush created L0@2 N·38 S·592B "bus..nfo,v36":"sys..n\x01\x01,v10"
+01:15:10.421574 version@stat F·[1] S·592B[592B] Sc·[0.25]
+01:15:10.433106 db@janitor F·3 G·0
+01:15:10.433619 db@open done T·36.297259ms
+=============== Aug 21, 2018 (UTC) ===============
+01:42:51.985373 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+01:42:51.989516 version@stat F·[1] S·592B[592B] Sc·[0.25]
+01:42:51.989970 db@open opening
+01:42:51.991043 journal@recovery F·1
+01:42:51.992761 journal@recovery recovering @3
+01:42:51.996313 memdb@flush created L0@5 N·2 S·165B "bus..nfo,v40":"sys..nfo,v41"
+01:42:51.999130 version@stat F·[2] S·757B[757B] Sc·[0.50]
+01:42:52.005880 db@janitor F·4 G·0
+01:42:52.006198 db@open done T·15.959785ms
+=============== Aug 21, 2018 (UTC) ===============
+05:36:34.816652 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+05:36:34.822882 version@stat F·[2] S·757B[757B] Sc·[0.50]
+05:36:34.823575 db@open opening
+05:36:34.825414 journal@recovery F·1
+05:36:34.836361 journal@recovery recovering @6
+05:36:34.848173 memdb@flush created L0@8 N·2 S·165B "bus..nfo,v43":"sys..nfo,v44"
+05:36:34.850422 version@stat F·[3] S·922B[922B] Sc·[0.75]
+05:36:34.858758 db@janitor F·5 G·0
+05:36:34.859300 db@open done T·35.22471ms
