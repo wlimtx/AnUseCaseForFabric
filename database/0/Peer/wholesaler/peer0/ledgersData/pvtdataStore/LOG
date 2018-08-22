@@ -32,3 +32,23 @@
 05:36:30.969212 version@stat F·[1] S·319B[319B] Sc·[0.25]
 05:36:30.975171 db@janitor F·3 G·0
 05:36:30.975498 db@open done T·11.416639ms
+=============== Aug 21, 2018 (UTC) ===============
+11:03:12.060963 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:03:12.083297 version@stat F·[1] S·319B[319B] Sc·[0.25]
+11:03:12.084119 db@open opening
+11:03:12.086626 journal@recovery F·1
+11:03:12.087938 journal@recovery recovering @7
+11:03:12.099624 memdb@flush created L0@9 N·18 S·250B "bus..n\x00\x00,d48":"bus..n\x00\x01,v34"
+11:03:12.103743 version@stat F·[2] S·569B[569B] Sc·[0.50]
+11:03:12.118229 db@janitor F·4 G·0
+11:03:12.118946 db@open done T·34.470097ms
+=============== Aug 21, 2018 (UTC) ===============
+12:59:40.782950 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:59:40.792242 version@stat F·[2] S·569B[569B] Sc·[0.50]
+12:59:40.793100 db@open opening
+12:59:40.795307 journal@recovery F·1
+12:59:40.796309 journal@recovery recovering @10
+12:59:40.806475 memdb@flush created L0@12 N·3 S·150B "bus..n\x00\x00,d52":"bus..n\x00\x01,v53"
+12:59:40.812647 version@stat F·[3] S·719B[719B] Sc·[0.75]
+12:59:40.831611 db@janitor F·5 G·0
+12:59:40.835943 db@open done T·42.536808ms

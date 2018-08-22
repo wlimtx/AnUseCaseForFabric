@@ -34,3 +34,31 @@
 05:36:31.202450 version@stat F·[3] S·1KiB[1KiB] Sc·[0.75]
 05:36:31.208593 db@janitor F·5 G·0
 05:36:31.208973 db@open done T·15.145287ms
+=============== Aug 21, 2018 (UTC) ===============
+11:03:10.502658 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:03:10.510174 version@stat F·[3] S·1KiB[1KiB] Sc·[0.75]
+11:03:10.510963 db@open opening
+11:03:10.512677 journal@recovery F·1
+11:03:10.515894 journal@recovery recovering @9
+11:03:10.520260 memdb@flush created L0@11 N·49 S·1KiB "bus..\x01\n\x00,v79":"bus..7b4,v112"
+11:03:10.521595 version@stat F·[4] S·3KiB[3KiB] Sc·[1.00]
+11:03:10.530190 db@janitor F·6 G·0
+11:03:10.530472 db@open done T·19.124445ms
+11:03:10.530574 table@compaction L0·4 -> L1·0 S·3KiB Q·121
+11:03:10.540391 table@build created L1@14 N·83 S·2KiB "bus..a\x00\x00,v3":"bus..7b4,v112"
+11:03:10.540889 version@stat F·[0 1] S·2KiB[0B 2KiB] Sc·[0.00 0.00]
+11:03:10.542508 table@compaction committed F-3 S-737B Ke·0 D·34 T·11.308292ms
+11:03:10.544918 table@remove removed @11
+11:03:10.546656 table@remove removed @8
+11:03:10.550024 table@remove removed @5
+11:03:10.551966 table@remove removed @2
+=============== Aug 21, 2018 (UTC) ===============
+12:59:42.430416 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:59:42.446363 version@stat F·[0 1] S·2KiB[0B 2KiB] Sc·[0.00 0.00]
+12:59:42.446887 db@open opening
+12:59:42.448012 journal@recovery F·1
+12:59:42.449733 journal@recovery recovering @12
+12:59:42.463237 memdb@flush created L0@15 N·9 S·376B "bus..\x01\x10\x00,v127":"bus..386,v129"
+12:59:42.465777 version@stat F·[1 1] S·2KiB[376B 2KiB] Sc·[0.25 0.00]
+12:59:42.472938 db@janitor F·4 G·0
+12:59:42.473322 db@open done T·26.187372ms
