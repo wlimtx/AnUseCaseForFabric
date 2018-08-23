@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="postgres@localhost" uuid="d3718cca-348e-46d8-b3f0-a3fe876f7a6d">
+    <data-source source="LOCAL" name="fabricexplorer@localhost" uuid="0ae7af5d-8b0e-4c63-85a9-16b554bd3cb0">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/fabricexplorer</jdbc-url>
     </data-source>
   </component>
 </project>

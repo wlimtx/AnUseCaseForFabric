@@ -1,0 +1,96 @@
+{
+  "network-config": {
+    "org1": {
+      "name": "farmer",
+      "mspid": "OrgFarmerMSP",
+      "peer1": {
+        "requests": "grpcs://127.0.0.1:7051",
+        "events": "grpcs://127.0.0.1:7053",
+        "server-hostname": "peer0.farmer.com",
+        "tls_cacerts": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/farmer.com/tlsca/tlsca.farmer.com-cert.pem"
+      },
+      "admin": {
+        "key": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/farmer.com/users/Admin@farmer.com/msp/keystore",
+
+        "cert": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/farmer.com/users/Admin@farmer.com/msp/signcerts"
+      }
+    },
+    "org2": {
+      "name": "distributor",
+      "mspid": "OrgDistributorMSP",
+      "peer1": {
+        "requests": "grpcs://127.0.0.1:9051",
+        "events": "grpcs://127.0.0.1:9053",
+        "server-hostname": "peer0.distributor.com",
+        "tls_cacerts": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/distributor.com/tlsca/tlsca.distributor.com-cert.pem"
+      },
+      "admin": {
+        "key": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/distributor.com/users/Admin@distributor.com/msp/keystore",
+
+        "cert": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/distributor.com/users/Admin@distributor.com/msp/signcerts"
+      }
+    },
+    "org3": {
+      "name": "shipper",
+      "mspid": "OrgShipperMSP",
+      "peer1": {
+        "requests": "grpcs://127.0.0.1:8051",
+        "events": "grpcs://127.0.0.1:8053",
+        "server-hostname": "peer0.shipper.com",
+        "tls_cacerts": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/shipper.com/tlsca/tlsca.shipper.com-cert.pem"
+      },
+      "admin": {
+        "key": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/shipper.com/users/Admin@shipper.com/msp/keystore",
+
+        "cert": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/shipper.com/users/Admin@shipper.com/msp/signcerts"
+      }
+    },
+    "org4": {
+      "name": "wholesaler",
+      "mspid": "OrgWholesalerMSP",
+      "peer1": {
+        "requests": "grpcs://127.0.0.1:10051",
+        "events": "grpcs://127.0.0.1:10053",
+        "server-hostname": "peer0.wholesaler.com",
+        "tls_cacerts": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/wholesaler.com/tlsca/tlsca.wholesaler.com-cert.pem"
+      },
+      "admin": {
+        "key": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/wholesaler.com/users/Admin@wholesaler.com/msp/keystore",
+
+        "cert": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/wholesaler.com/users/Admin@wholesaler.com/msp/signcerts"
+      }
+    },
+    "org5": {
+      "name": "retailer",
+      "mspid": "OrgRetailerMSP",
+      "peer1": {
+        "requests": "grpcs://127.0.0.1:11051",
+        "events": "grpcs://127.0.0.1:11053",
+        "server-hostname": "peer0.retailer.com",
+        "tls_cacerts": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/retailer.com/tlsca/tlsca.retailer.com-cert.pem"
+      },
+      "admin": {
+        "key": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/retailer.com/users/Admin@retailer.com/msp/keystore",
+
+        "cert": "/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/peerOrganizations/retailer.com/users/Admin@retailer.com/msp/signcerts"
+      }
+    }
+  },
+  "channel": "businesschain",
+  "orderers":[
+    {
+      "mspid": "OrdererSunmiMSP",
+      "server-hostname":"orderer.sunmi.com",
+      "requests":"grpcs://127.0.0.1:7050",
+      "tls_cacerts":"/Users/liumingxing/IdeaProjects/AnUseCaseForFabric/network/crypto-config/ordererOrganizations/sunmi.com/tlsca/tlsca.sunmi.com-cert.pem"
+    }
+  ],
+  "keyValueStore": "/tmp/fabric-client-kvs",
+  "configtxgenToolPath": "fabric-path/fabric-samples/bin",
+  "SYNC_START_DATE_FORMAT":"YYYY/MM/DD",
+  "syncStartDate":"2018/01/01",
+  "eventWaitTime": "30000",
+  "license": "Apache-2.0",
+  "version": "1.1"
+}
+
