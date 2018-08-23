@@ -1,0 +1,17 @@
+[
+ {
+	 "name": "fruitTransactionDetails",
+	 "policy": "OR('OrgFarmerMSP.member', 'OrgDistributorMSP.member', 'OrgShipperMSP.member')",
+	 "requiredPeerCount": 0,
+	 "maxPeerCount": 3,
+	 "blockToLive":1000000
+},
+ {
+	 "name": "deliverFeeDetails",
+	 "policy": "OR('OrgFarmerMSP.member', 'OrgDistributorMSP.member', 'OrgShipperMSP.member')",
+	 "requiredPeerCount": 0,
+	 "maxPeerCount": 3,
+	 "blockToLive":1000000
+ }
+]
+

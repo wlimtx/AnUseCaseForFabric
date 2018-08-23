@@ -15,7 +15,7 @@ services:
       - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0
       - ORDERER_GENERAL_GENESISMETHOD=file
       - ORDERER_GENERAL_GENESISFILE=/var/hyperledger/orderer/orderer.genesis.block
-      - ORDERER_GENERAL_LOCALMSPID=OrdererMSP
+      - ORDERER_GENERAL_LOCALMSPID=OrdererSunmiMSP
       - ORDERER_GENERAL_LOCALMSPDIR=/var/hyperledger/orderer/msp
       # enabled TLS
       - ORDERER_GENERAL_TLS_ENABLED=true
@@ -43,7 +43,7 @@ services:
       - CORE_PEER_ADDRESS=peer0.farmer.com:7051
 #      - CORE_PEER_GOSSIP_BOOTSTRAP=
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.farmer.com:7051
-      - CORE_PEER_LOCALMSPID=FarmerMSP
+      - CORE_PEER_LOCALMSPID=OrgFarmerMSP
     volumes:
         - /var/run/:/host/var/run/
         - ../crypto-config/peerOrganizations/farmer.com/peers/peer0.farmer.com/msp:/etc/hyperledger/fabric/msp
@@ -64,7 +64,7 @@ services:
       - CORE_PEER_ADDRESS=peer0.shipper.com:7051
 #      - CORE_PEER_GOSSIP_BOOTSTRAP=
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.shipper.com:7051
-      - CORE_PEER_LOCALMSPID=ShipperMSP
+      - CORE_PEER_LOCALMSPID=OrgShipperMSP
     volumes:
         - /var/run/:/host/var/run/
         - ../crypto-config/peerOrganizations/shipper.com/peers/peer0.shipper.com/msp:/etc/hyperledger/fabric/msp
@@ -85,7 +85,7 @@ services:
       - CORE_PEER_ADDRESS=peer0.distributor.com:7051
 #      - CORE_PEER_GOSSIP_BOOTSTRAP=
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.distributor.com:7051
-      - CORE_PEER_LOCALMSPID=DistributorMSP
+      - CORE_PEER_LOCALMSPID=OrgDistributorMSP
     volumes:
         - /var/run/:/host/var/run/
         - ../crypto-config/peerOrganizations/distributor.com/peers/peer0.distributor.com/msp:/etc/hyperledger/fabric/msp
@@ -106,7 +106,7 @@ services:
       - CORE_PEER_ADDRESS=peer0.wholesaler.com:7051
 #      - CORE_PEER_GOSSIP_BOOTSTRAP=
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.wholesaler.com:7051
-      - CORE_PEER_LOCALMSPID=WholesalerMSP
+      - CORE_PEER_LOCALMSPID=OrgWholesalerMSP
     volumes:
         - /var/run/:/host/var/run/
         - ../crypto-config/peerOrganizations/wholesaler.com/peers/peer0.wholesaler.com/msp:/etc/hyperledger/fabric/msp
@@ -127,7 +127,7 @@ services:
       - CORE_PEER_ADDRESS=peer0.retailer.com:7051
 #      - CORE_PEER_GOSSIP_BOOTSTRAP=
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.retailer.com:7051
-      - CORE_PEER_LOCALMSPID=RetailerMSP
+      - CORE_PEER_LOCALMSPID=OrgRetailerMSP
     volumes:
         - /var/run/:/host/var/run/
         - ../crypto-config/peerOrganizations/retailer.com/peers/peer0.retailer.com/msp:/etc/hyperledger/fabric/msp

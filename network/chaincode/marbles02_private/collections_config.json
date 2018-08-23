@@ -1,14 +1,14 @@
 [
  {
 	 "name": "collectionMarbles",
-	 "policy": "OR('FarmerMSP.member', 'DistributorMSP.member', 'ShipperMSP.member')",
+	 "policy": "OR('OrgFarmerMSP.member', 'OrgDistributorMSP.member', 'OrgShipperMSP.member')",
 	 "requiredPeerCount": 0,
 	 "maxPeerCount": 3,
 	 "blockToLive":1000000
 },
  {
 	 "name": "collectionMarblePrivateDetails",
-	 "policy": "OR('FarmerMSP.member', 'DistributorMSP.member')",
+	 "policy": "OR('OrgFarmerMSP.member', 'OrgDistributorMSP.member')",
 	 "requiredPeerCount": 0,
 	 "maxPeerCount": 3,
 	 "blockToLive":3

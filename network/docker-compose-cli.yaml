@@ -80,7 +80,7 @@ services:
       - CORE_LOGGING_LEVEL=INFO
       - CORE_PEER_ID=cli
       - CORE_PEER_ADDRESS=peer0.farmer.com:7051
-      - CORE_PEER_LOCALMSPID=FarmerMSP
+      - CORE_PEER_LOCALMSPID=OrgFarmerMSP
       - CORE_PEER_TLS_ENABLED=true
       - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/farmer.com/peers/peer0.farmer.com/tls/server.crt
       - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/farmer.com/peers/peer0.farmer.com/tls/server.key

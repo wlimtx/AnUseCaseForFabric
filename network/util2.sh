@@ -167,7 +167,7 @@ function networkUp() {
   # now run the end to end script
   docker exec cli scripts/script.sh $CHANNEL_NAME $CLI_DELAY $LANGUAGE $CLI_TIMEOUT $VERBOSE
   if [ $? -ne 0 ]; then
-    echo "ERROR !!!! Test failed"
+    echo "ERROR !!!! test.Test failed"
     exit 1
   fi
 }
@@ -226,7 +226,7 @@ function upgradeNetwork() {
 
   docker exec cli scripts/upgrade_to_v12.sh $CHANNEL_NAME $CLI_DELAY $LANGUAGE $CLI_TIMEOUT $VERBOSE
   if [ $? -ne 0 ]; then
-    echo "ERROR !!!! Test failed"
+    echo "ERROR !!!! test.Test failed"
     exit 1
   fi
 }

@@ -16,24 +16,24 @@ Organizations:
 
     # SampleOrg defines an MSP using the sampleconfig.  It should never be used
     # in production but may be used as a template for other definitions
-    - &OrdererOrg
+    - &OrdererSunmi
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: OrdererOrg
+        Name: OrdererSunmi
 
         # ID to load the MSP definition as
-        ID: OrdererMSP
+        ID: OrdererSunmiMSP
 
         # MSPDir is the filesystem path which contains the MSP configuration
         MSPDir: crypto-config/ordererOrganizations/sunmi.com/msp
 
-    - &Farmer
+    - &OrgFarmer
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: FarmerMSP
+        Name: OrgFarmer
 
         # ID to load the MSP definition as
-        ID: FarmerMSP
+        ID: OrgFarmerMSP
 
         MSPDir: crypto-config/peerOrganizations/farmer.com/msp
 
@@ -44,13 +44,13 @@ Organizations:
             - Host: peer0.farmer.com
               Port: 7051
 
-    - &Shipper
+    - &OrgShipper
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: ShipperMSP
+        Name: OrgShipper
 
         # ID to load the MSP definition as
-        ID: ShipperMSP
+        ID: OrgShipperMSP
 
         MSPDir: crypto-config/peerOrganizations/shipper.com/msp
 
@@ -61,13 +61,13 @@ Organizations:
             - Host: peer0.shipper.com
               Port: 7051
 
-    - &Distributor
+    - &OrgDistributor
             # DefaultOrg defines the organization which is used in the sampleconfig
             # of the fabric.git development environment
-            Name: DistributorMSP
+            Name: OrgDistributor
 
             # ID to load the MSP definition as
-            ID: DistributorMSP
+            ID: OrgDistributorMSP
 
             MSPDir: crypto-config/peerOrganizations/distributor.com/msp
 
@@ -78,13 +78,13 @@ Organizations:
                 - Host: peer0.distributor.com
                   Port: 7051
 
-    - &Wholesaler
+    - &OrgWholesaler
             # DefaultOrg defines the organization which is used in the sampleconfig
             # of the fabric.git development environment
-            Name: WholesalerMSP
+            Name: OrgWholesaler
 
             # ID to load the MSP definition as
-            ID: WholesalerMSP
+            ID: OrgWholesalerMSP
 
             MSPDir: crypto-config/peerOrganizations/wholesaler.com/msp
 
@@ -95,13 +95,13 @@ Organizations:
                 - Host: peer0.wholesaler.com
                   Port: 7051
 
-    - &Retailer
+    - &OrgRetailer
             # DefaultOrg defines the organization which is used in the sampleconfig
             # of the fabric.git development environment
-            Name: RetailerMSP
+            Name: OrgRetailer
 
             # ID to load the MSP definition as
-            ID: RetailerMSP
+            ID: OrgRetailerMSP
 
             MSPDir: crypto-config/peerOrganizations/retailer.com/msp
 
@@ -236,26 +236,26 @@ Profiles:
         Orderer:
             <<: *OrdererDefaults
             Organizations:
-                - *OrdererOrg
+                - *OrdererSunmi
             Capabilities:
                 <<: *OrdererCapabilities
         Consortiums:
             SampleConsortium:
                 Organizations:
-                    - *Farmer
-                    - *Shipper
-                    - *Distributor
-                    - *Wholesaler
-                    - *Retailer
+                    - *OrgFarmer
+                    - *OrgShipper
+                    - *OrgDistributor
+                    - *OrgWholesaler
+                    - *OrgRetailer
     FiveOrgsChannel:
         Consortium: SampleConsortium
         Application:
             <<: *ApplicationDefaults
             Organizations:
-                - *Farmer
-                - *Shipper
-                - *Distributor
-                - *Wholesaler
-                - *Retailer
+                - *OrgFarmer
+                - *OrgShipper
+                - *OrgDistributor
+                - *OrgWholesaler
+                - *OrgRetailer
             Capabilities:
                 <<: *ApplicationCapabilities
