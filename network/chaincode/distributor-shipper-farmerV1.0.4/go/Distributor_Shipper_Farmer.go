@@ -87,7 +87,6 @@ import (
 	"strconv"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	pb "github.com/hyperledger/fabric/protos/peer"
-	"github.com/hyperledger/fabric/core/chaincode/lib/cid"
 )
 
 // DistributorFarmerShipperChainCode example simple Chaincode implementation
@@ -138,13 +137,7 @@ func (t *DistributorFarmerShipperChainCode) Invoke(stub shim.ChaincodeStubInterf
 	function, args := stub.GetFunctionAndParameters()
 	fmt.Println("invoke is running " + function)
 
-	mspid, e := cid.GetMSPID(stub)
-	if e!= nil {
-		return shim.Error(e.Error())
-	}
-	if mspid != "OrgFarmerMSP" && mspid != "OrgDistributorMSP" && mspid != "OrgShipperMSP" {
-		return shim.Error("permission denied")
-	}
+
 	// Handle different functions
 	switch function {
 	case "newFruitTx":

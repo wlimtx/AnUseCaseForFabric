@@ -87,6 +87,7 @@ import (
 	"strconv"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/fabric/core/chaincode/lib/cid"
 )
 
 // DistributorFarmerShipperChainCode example simple Chaincode implementation
@@ -137,6 +138,7 @@ func (t *DistributorFarmerShipperChainCode) Invoke(stub shim.ChaincodeStubInterf
 	function, args := stub.GetFunctionAndParameters()
 	fmt.Println("invoke is running " + function)
 
+
 	// Handle different functions
 	switch function {
 	case "newFruitTx":
@@ -163,9 +165,18 @@ func (t *DistributorFarmerShipperChainCode) Invoke(stub shim.ChaincodeStubInterf
 	case "getDeliverFeeTxByRange":
 		//find marbles based on an ad hoc rich query
 		return t.getDeliverFeeTxByRange(stub, args)
-	case "newFunction101":
-		//find marbles based on an ad hoc rich query
-		return t.newFunction101(stub, args)
+	case "GetID":
+		s, e := cid.GetID(stub)
+		if e!= nil {
+			return shim.Error(e.Error())
+		}
+		return shim.Success([]byte(s))
+	case "GetMSPID":
+		s, e := cid.GetMSPID(stub)
+		if e!= nil {
+			return shim.Error(e.Error())
+		}
+		return shim.Success([]byte(s))
 	default:
 		//error
 		fmt.Println("invoke did not find func: " + function)

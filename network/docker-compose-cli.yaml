@@ -91,6 +91,7 @@ services:
     command: /bin/bash
     volumes:
       - /var/run/:/host/var/run/
+      - ./../lib/:/opt/gopath/src/github.com/
       - ./chaincode/:/opt/gopath/src/github.com/chaincode
       - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
       - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts
