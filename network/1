@@ -1,0 +1,40 @@
+peer chaincode invoke -o orderer.sunmi.com:7050 --tls --cafile $ORDERER_CA                      \
+ -C businesschain -n Distributor_Shipper_Farmer -c '{"Args":["newFruitTx", "9", "西瓜","温热","12 cny/kg","2000 kg","9"]}'          \
+ --peerAddresses peer0.farmer.com:7051 --tlsRootCertFiles $FARMER_TLS_ROOT_CERT_FILE
+
+
+requiredPeerCount: Minimum number of peers that the endorsing peer must successfully disseminate private data to
+before the peer signs the endorsement and returns the proposal response back to the client. When requiredPeerCount is 0,
+it means that no distribution is required, but there may be some distribution if maxPeerCount is greater than zero.
+A requiredPeerCount of 0 would typically not be recommended, as it could lead to loss of private data.
+Typically you would want to require at least some distribution of the private data at endorsement time to ensure
+redundancy of the private data on multiple peers in the network.
+
+maxPeerCount: For data redundancy purposes, the number of other peers that the current endorsing peer will attempt to
+distribute the data to. If an endorsing peer becomes unavailable between endorsement time and commit time,
+other peers that are collection members but who did not yet receive the private data, will be able to pull the
+private data from the peers the private data was disseminated to. If this value is set to 0, the private data
+is not disseminated at endorsement time, forcing private data pulls on all authorized peers.
+
+if the disseminated number of peers is smaller than requiredPeerCount, then the endorsement will fail and got the error below.
+[gossip/service] DistributePrivateData -> ERRO 086 Failed to distributed private collection, txID 50a0524f7c46fa6d6b639f8ebb9d53bede0547a5998b12dfde57e8a9672b0a63 channel businesschain due to Failed disseminating 1 out of 1 private RWSets
+
+
+Add a new organization and peer to an existing channel.
+ 1.set up a configtxlator server to interact with the config block of the channel
+ 2.fetch the config block using peer channel fetch command
+ 3.translate the retrieved config block from protobuf to json using configtxlator server
+ 4.modify the json configuration to include the new org's info
+ 5.encode the json into protobuf using configtxlator
+ 6.compute the delta of the new config and the original in the channel
+ 7.decode the delta config update from protobuf to json
+ 8.wrap that json update in an envelope
+ 9.encode the resulting json into protobuf again, using configtxlator
+10.sign the transaction for a sufficient subset of the channel's membership to satisfy its endorsement policy
+11.submit the signed channel update command with peer channel update command
+12.fetch the genesis block for the channel with peer channel fetch
+13.start the new org's peer(s)
+14.join the new org's peer(s) to the channel using the genesis block with peer channel join
+15.install the chaincode to the new org's peer(s) as needed
+16.upgrade the chaincode to set a new endorsement policy including the new organization
+

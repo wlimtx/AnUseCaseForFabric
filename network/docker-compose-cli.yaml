@@ -64,10 +64,6 @@ services:
      - confidential
 
 
-
-
-
-
   cli:
     container_name: cli
     image: hyperledger/fabric-tools:$IMAGE_TAG
@@ -87,11 +83,19 @@ services:
       - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/farmer.com/peers/peer0.farmer.com/tls/ca.crt
       - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/farmer.com/users/Admin@farmer.com/msp
       - LANG=C.UTF-8
+
+      - ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/sunmi.com/orderers/orderer.sunmi.com/msp/tlscacerts/tlsca.sunmi.com-cert.pem
+      - FARMER_TLS_ROOT_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/farmer.com/peers/peer0.farmer.com/tls/ca.crt
+      - DISTRIBUTOR_TLS_ROOT_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/distributor.com/peers/peer0.distributor.com/tls/ca.crt
+      - SHIPPER_TLS_ROOT_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/shipper.com/peers/peer0.shipper.com/tls/ca.crt
+      - WHOLESALER_TLS_ROOT_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/wholesaler.com/peers/peer0.wholesaler.com/tls/ca.crt
+      - RETAILER_TLS_ROOT_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/retailer.com/peers/peer0.retailer.com/tls/ca.crt
+
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
       - /var/run/:/host/var/run/
-      - ./../lib/:/opt/gopath/src/github.com/
+      - ./../lib/vendor:/opt/gopath/src/github.com/vendor/
       - ./chaincode/:/opt/gopath/src/github.com/chaincode
       - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
       - ./channel-artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/channel-artifacts

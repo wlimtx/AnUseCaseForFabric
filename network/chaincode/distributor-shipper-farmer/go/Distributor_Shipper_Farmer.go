@@ -87,6 +87,7 @@ import (
 	"strconv"
 	"github.com/hyperledger/fabric/core/chaincode/shim"
 	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/fabric/core/chaincode/lib/cid"
 )
 
 // DistributorFarmerShipperChainCode example simple Chaincode implementation
@@ -128,14 +129,41 @@ func main() {
 // Init initializes chaincode
 // ===========================
 func (t *DistributorFarmerShipperChainCode) Init(stub shim.ChaincodeStubInterface) pb.Response {
+	args := stub.GetStringArgs()
+	fmt.Println("- start init access member")
+	indexName := "Id~MSPId"
+	for i := range args {
+		if len(args[i]) > 0 {
+			ck, err := stub.CreateCompositeKey(indexName,
+				[]string{"0", args[i]})
+			if err != nil {
+				return shim.Error(err.Error())
+			}
+			err = stub.PutState(ck, []byte{0x00})
+			if err != nil {
+				return shim.Error(err.Error())
+			}
+		}
+	}
 	return shim.Success(nil)
 }
+
 
 // Invoke - Our entry point for Invocations
 // ========================================
 func (t *DistributorFarmerShipperChainCode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	function, args := stub.GetFunctionAndParameters()
 	fmt.Println("invoke is running " + function)
+
+	umspid, err := cid.GetMSPID(stub)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+
+	authorized, errMsg := isAuthorizedPeer(stub, umspid)
+	if !authorized {
+		return shim.Error(errMsg)
+	}
 
 	// Handle different functions
 	switch function {
@@ -163,6 +191,15 @@ func (t *DistributorFarmerShipperChainCode) Invoke(stub shim.ChaincodeStubInterf
 	case "getDeliverFeeTxByRange":
 		//find marbles based on an ad hoc rich query
 		return t.getDeliverFeeTxByRange(stub, args)
+	case "authorizeNewUser":
+		//find marbles based on an ad hoc rich query
+		return t.authorizeNewUser(stub, args)
+	case "unAuthorizeUser":
+		//find marbles based on an ad hoc rich query
+		return t.unAuthorizeUser(stub, args)
+	case "getAllAuthorizedUsers":
+		//find marbles based on an ad hoc rich query
+		return t.getAllAuthorizedUsers(stub, args)
 	default:
 		//error
 		fmt.Println("invoke did not find func: " + function)
@@ -532,7 +569,70 @@ func (t *DistributorFarmerShipperChainCode) richQueryDeliverFeeTx(stub shim.Chai
 	}
 	return shim.Success(queryResults)
 }
+func (t *DistributorFarmerShipperChainCode) newFunction102(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+	return shim.Success([]byte("success update to 1.0.2"))
+}
+func (code *DistributorFarmerShipperChainCode) authorizeNewUser(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 
+	if len(args) < 1 || len(args[0]) == 0 {
+		return shim.Error("Incorrect number of arguments. Expecting 1")
+	}
+	indexName := "Id~MSPId"
+	ck, err := stub.CreateCompositeKey(indexName,
+		[]string{"0", args[0]})
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	err = stub.PutState(ck, []byte{0x00})
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	return shim.Success([]byte("success authorized "+args[0]))
+}
+
+func (code *DistributorFarmerShipperChainCode) unAuthorizeUser(stub shim.ChaincodeStubInterface, args []string) pb.Response {
+
+	if len(args) < 1 || len(args[0]) == 0 {
+		return shim.Error("Incorrect number of arguments. Expecting 1")
+	}
+	indexName := "Id~MSPId"
+	ck, err := stub.CreateCompositeKey(indexName,
+		[]string{"0", args[0]})
+
+
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	err = stub.DelState(ck)
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	return shim.Success([]byte("success unauthorized "+args[0]))
+}
+func (code *DistributorFarmerShipperChainCode) getAllAuthorizedUsers(stub shim.ChaincodeStubInterface, strings []string) pb.Response {
+	indexName := "Id~MSPId"
+	each, err := stub.GetStateByPartialCompositeKey (indexName, []string{"0"}) //返回包含给出颜色的组合键的迭代器
+
+	if err != nil {
+		return shim.Error(err.Error())
+	}
+	defer each.Close()
+
+	var buffer bytes.Buffer
+	for each.HasNext() {
+		ck, err := each.Next()
+		if err != nil {
+			return shim.Error(err.Error())
+		}
+		_, cks, err := stub.SplitCompositeKey(string(ck.Key)) //通过SplitCompositeKey 解析出Car的主键 ID
+		if err != nil {
+			return shim.Error(err.Error())
+		}
+		mspid := cks[1]
+		buffer.WriteString(mspid)
+	}
+	return shim.Success([]byte(buffer.String()))
+}
 // =========================================================================================
 // getQueryResultForQueryString executes the passed in query string.
 // Result set is built and returned as a byte array containing the JSON results.
@@ -578,4 +678,37 @@ func getQueryResultForQueryString(stub shim.ChaincodeStubInterface, PDCName stri
 	fmt.Printf("queryResult:\n%s\n", buffer.String())
 
 	return buffer.Bytes(), nil
+}
+
+func  isAuthorizedPeer(stub shim.ChaincodeStubInterface,umspid string) (bool,string){
+	indexName := "Id~MSPId"
+	each, err := stub.GetStateByPartialCompositeKey (indexName, []string{"0"}) //返回包含给出颜色的组合键的迭代器
+
+	if err != nil {
+		return false,err.Error()
+	}
+	defer each.Close()
+
+	authorized := false
+	for each.HasNext() {
+		ck, err := each.Next()
+		if err != nil {
+			return false,err.Error()
+		}
+		_, cks, err := stub.SplitCompositeKey(string(ck.Key)) //通过SplitCompositeKey 解析出Car的主键 ID
+		if err != nil {
+			return false,err.Error()
+		}
+		mspid := cks[1]
+		if umspid == mspid {
+			authorized = true
+			break
+		}
+	}
+
+	if !authorized {
+		return false,"Permission denied"
+	}
+
+	return true, ""
 }

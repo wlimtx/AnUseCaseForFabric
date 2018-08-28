@@ -1,0 +1,56 @@
+version: '2'
+
+networks:
+  confidential:
+
+services:
+
+  farmer1CounchDB:
+    container_name: farmer1CounchDB
+    image: hyperledger/fabric-couchdb
+    # Populate the COUCHDB_USER and COUCHDB_PASSWORD to set an admin user and password
+    # for CouchDB.  This will prevent CouchDB from operating in an "Admin Party" mode.
+    environment:
+      - COUCHDB_USER=
+      - COUCHDB_PASSWORD=
+    # Comment/Uncomment the port mapping if you want to hide/expose the CouchDB service,
+    # for example map it to utilize Fauxton User Interface in dev environments.
+    volumes:
+      - ${DATA_PATH}/Peer/farmer/couch1:/opt/couchdb/data
+    ports:
+      - "5985:5984"
+    networks:
+      - confidential
+
+  peer1.farmer.com:
+    container_name: peer1.farmer.com
+    extends:
+      file: base/peer-base.yaml
+      service: peer-base
+    environment:
+      - CORE_PEER_ID=peer1.farmer.com
+      - CORE_PEER_ADDRESS=peer1.farmer.com:7051
+#      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.farmer.com:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.farmer.com:7051
+      - CORE_PEER_LOCALMSPID=OrgFarmerMSP
+
+      - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=farmer1CounchDB:5984
+      # The CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME and CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD
+      # provide the credentials for ledger to connect to CouchDB.  The username and password must
+      # match the username and password set for the associated CouchDB.
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=
+      - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=
+    volumes:
+      - /var/run/:/host/var/run/
+      - ./crypto-config/peerOrganizations/farmer.com/peers/peer1.farmer.com/msp:/etc/hyperledger/fabric/msp
+      - ./crypto-config/peerOrganizations/farmer.com/peers/peer1.farmer.com/tls:/etc/hyperledger/fabric/tls
+      - ${DATA_PATH}/Peer/farmer/peer1:/var/hyperledger/production/
+
+    ports:
+      - 7055:7051
+      - 7057:7053
+    networks:
+      - confidential
+    depends_on:
+      - farmer1CounchDB
