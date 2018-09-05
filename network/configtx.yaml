@@ -112,6 +112,22 @@ Organizations:
                 - Host: peer0.retailer.com
                   Port: 7051
 
+    - &Quantum
+            # DefaultOrg defines the organization which is used in the sampleconfig
+            # of the fabric.git development environment
+            Name: OrgQuantum
+
+            # ID to load the MSP definition as
+            ID: OrgQuantumMSP
+
+            MSPDir: ../crypto-new-org/peerOrganizations/entanglement.quantum.com/msp
+
+            AnchorPeers:
+                # AnchorPeers defines the location of peers which can be used
+                # for cross org gossip communication.  Note, this value is only
+                # encoded in the genesis block in the Application section context
+                - Host: peer0.quantum.com
+                  Port: 7051
 ################################################################################
 #
 #   SECTION: Capabilities
@@ -257,5 +273,6 @@ Profiles:
                 - *OrgDistributor
                 - *OrgWholesaler
                 - *OrgRetailer
+                - *Quantum
             Capabilities:
                 <<: *ApplicationCapabilities

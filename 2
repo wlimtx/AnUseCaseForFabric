@@ -1,1 +1,37 @@
 [{"Key":"0", "Record":{"docType":"fruitTransactionDetail","id":0,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"1", "Record":{"docType":"fruitTransactionDetail","id":1,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"10", "Record":{"docType":"fruitTransactionDetail","id":10,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"11", "Record":{"docType":"fruitTransactionDetail","id":11,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"12", "Record":{"docType":"fruitTransactionDetail","id":12,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"13", "Record":{"docType":"fruitTransactionDetail","id":13,"level":"100","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"14", "Record":{"docType":"fruitTransactionDetail","id":14,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"15", "Record":{"docType":"fruitTransactionDetail","id":15,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"16", "Record":{"docType":"fruitTransactionDetail","id":16,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"17", "Record":{"docType":"fruitTransactionDetail","id":17,"level":"100","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"2", "Record":{"docType":"fruitTransactionDetail","id":2,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"3", "Record":{"docType":"fruitTransactionDetail","id":3,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"4", "Record":{"docType":"fruitTransactionDetail","id":4,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"5", "Record":{"docType":"fruitTransactionDetail","id":5,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"6", "Record":{"docType":"fruitTransactionDetail","id":6,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"7", "Record":{"docType":"fruitTransactionDetail","id":7,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}},{"Key":"8", "Record":{"docType":"fruitTransactionDetail","id":8,"level":"9","name":"西瓜","price":"12 cny/kg","type":"温热","weight":"2000 kg"}}]
+
+
+
+
+Root CAs: 此文件夹包含由此MSP表示的组织信任的根CA的自签名X.509证书列表。 此MSP文件夹中必须至少有一个Root CA X.509证书。
+
+这是最重要的文件夹，因为它标识了相应组织的成员必须从中派生所有其他证书的CA。
+中间CA：此文件夹包含此组织信任的中间CA的X.509证书列表。 每个证书必须由MSP中的一个根CA或中间CA签名，中间CA的颁发CA链最终会返回到受信任的根CA.
+
+Imtermidiate CAs: 可以代表组织的不同细分（如ORG1的ORG1-MANUFACTURING和ORG1-DISTRIBUTION），或组织本身（如果商业CA用于组织的身份管理，则可能是这种情况）。 在后一种情况下，中间CA可用于表示组织细分。请注意，可能有一个没有ICA的正常运行的网络，在这种情况下，此文件夹将为空。
+
+Organizational Units（OU）：这些单位列在$ FABRIC_CFG_PATH / msp / config.yaml文件中，并包含一个组织单位列表，其成员被视为该MSP所代表的组织的一部分。 当您希望将组织成员限制为拥有其中包含特定OU的身份（由MSP指定的CA之一签名）的成员时，此功能尤其有用。
+
+Administrators：此文件夹包含一个标识列表，用于定义具有此组织管理员角色的角色。对于标准MSP类型，此列表中应该有一个或多个X.509证书。
+
+
+Revocation Certificates：对于已撤销的参与者的身份，则在此文件夹中保存有关身份的信息。
+
+Node Identity：该文件夹包含节点的标识，即加密材料 - 与KeyStore的内容组合 - 将允许节点在发送给其信道和网络的其他参与者的消息中认证自身。 对于基于X.509的标识，此文件夹包含X.509证书。 这是对等体在交易提议响应中放置的证书，例如，用于指示对等方已经认可它 - 随后可以在验证时针对结果交易的认可策略进行检查。
+
+此文件夹对于本地MSP是必需的，并且该节点必须只有一个X.509证书。 它不用于通道MSP。
+
+私钥的KeyStore：此文件夹是为对等或订购者节点（或客户端的本地MSP）的本地MSP定义的，包含节点的签名密钥。此密钥以加密方式匹配节点标识文件夹中包含的节点标识，并用于签署数据 - 例如签署交易提议响应，作为认可阶段的一部分。
+
+此文件夹对于本地MSP是必需的，并且必须只包含一个私钥。显然，对此文件夹的访问权限必须仅限于对等人具有管理职责的用户的身份。
+
+通道MSP的配置不包括此文件夹，因为通道MSP仅旨在提供身份验证功能而不是签名功能。
+TLS根CA：此文件夹包含此组织信任的用于TLS通信的根CA的自签名X.509证书列表。 TLS通信的一个示例是当对等方需要连接到订货人以便它可以接收分类帐更新时。
+
+MSP TLS信息涉及网络内的节点 - 对等体和订购者，换句话说，而不是消耗网络的应用程序和管理。
+
+此文件夹中必须至少有一个TLS根CA X.509证书。
+TLS中间CA：此文件夹包含由此MSP用于TLS通信的组织信任的列表中间CA证书CA.当商业CA用于组织的TLS证书时，此文件夹特别有用。与成员资格中间CA类似，指定中间TLS CA是可选的。
+
+有关TLS的更多信息，请单击此处。
+

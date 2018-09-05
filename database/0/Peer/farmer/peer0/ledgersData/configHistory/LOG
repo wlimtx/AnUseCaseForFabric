@@ -14,3 +14,21 @@
 01:24:59.838905 version@stat F·[1] S·265B[265B] Sc·[0.25]
 01:24:59.844099 db@janitor F·3 G·0
 01:24:59.844403 db@open done T·11.607209ms
+=============== Aug 28, 2018 (UTC) ===============
+02:12:24.998197 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+02:12:25.001727 version@stat F·[1] S·265B[265B] Sc·[0.25]
+02:12:25.002087 db@open opening
+02:12:25.003046 journal@recovery F·1
+02:12:25.003605 journal@recovery recovering @3
+02:12:25.005434 version@stat F·[1] S·265B[265B] Sc·[0.25]
+02:12:25.010393 db@janitor F·3 G·0
+02:12:25.010591 db@open done T·8.269912ms
+=============== Aug 28, 2018 (UTC) ===============
+05:41:52.633122 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+05:41:52.639403 version@stat F·[1] S·265B[265B] Sc·[0.25]
+05:41:52.639928 db@open opening
+05:41:52.641500 journal@recovery F·1
+05:41:52.642023 journal@recovery recovering @5
+05:41:52.644688 version@stat F·[1] S·265B[265B] Sc·[0.25]
+05:41:52.652901 db@janitor F·3 G·0
+05:41:52.653247 db@open done T·12.977037ms

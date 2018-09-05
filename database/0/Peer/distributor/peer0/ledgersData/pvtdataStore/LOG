@@ -14,3 +14,22 @@
 01:24:55.857076 version@stat F·[1] S·585B[585B] Sc·[0.25]
 01:24:55.880611 db@janitor F·3 G·0
 01:24:55.881054 db@open done T·68.873813ms
+=============== Aug 28, 2018 (UTC) ===============
+02:12:21.110721 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+02:12:21.115978 version@stat F·[1] S·585B[585B] Sc·[0.25]
+02:12:21.116642 db@open opening
+02:12:21.118266 journal@recovery F·1
+02:12:21.129451 journal@recovery recovering @3
+02:12:21.135326 version@stat F·[1] S·585B[585B] Sc·[0.25]
+02:12:21.142982 db@janitor F·3 G·0
+02:12:21.143322 db@open done T·26.380374ms
+=============== Aug 28, 2018 (UTC) ===============
+05:41:47.711147 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+05:41:47.717127 version@stat F·[1] S·585B[585B] Sc·[0.25]
+05:41:47.717657 db@open opening
+05:41:47.719208 journal@recovery F·1
+05:41:47.720014 journal@recovery recovering @5
+05:41:47.724283 memdb@flush created L0@7 N·3 S·150B "bus..n\x00\x00,d38":"bus..n\x00\x01,v37"
+05:41:47.725747 version@stat F·[2] S·735B[735B] Sc·[0.50]
+05:41:47.746387 db@janitor F·4 G·0
+05:41:47.747014 db@open done T·29.070647ms
